@@ -8,8 +8,8 @@ import * as process from 'process';
 const api_url = "https://api.github.com";
 
 // リポジトリの所有者とリポジトリ名
-const owner = "kazuki1023";
-const repo = "github-issue-";
+const owner = "Sakinom";
+const repo = "miniHackathon_3";
 
 // GitHubのパーソナルアクセストークン
 dotenv.config();
@@ -39,8 +39,8 @@ fs.readdir(template_dir, (err, files) => {
       const title_match = content.match(/^## (.+)$/m);
       const label_match = content.match(/^## labels\s*\n\[([^\]]+)\]/m);
       const contentWithoutLabels = label_match ? content.split(label_match[0])[1] : content;
-    // 本文を抽出（ラベルの後のすべてのテキスト）
-    const body_match = contentWithoutLabels ? contentWithoutLabels.split(/^## [^\n]+$/m)[1].trim() : '';
+      // 本文を抽出（ラベルの後のすべてのテキスト）
+      const body_match = contentWithoutLabels ? contentWithoutLabels.split(/^## [^\n]+$/m)[1].trim() : '';
 
       if (title_match) {
         const issue_title = title_match[1].trim();
